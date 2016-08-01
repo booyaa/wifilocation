@@ -1,0 +1,13 @@
+[package]
+name = "wifilocation"
+version = "0.1.0"
+authors = ["Mark Sta Ana <booyaabooyaabooyaa@gmail.com>"]
+description = "List WiFi hotspots in your area"
+repository = "https://github.com/booyaa/wifiscanner"
+readme = "README.md"
+keywords = ["wifi","hotspots","network"]
+license = "Apache-2.0"
+
+[dependencies]
+wifiscanner = "0.2.1"
+curl = "0.3.1"
