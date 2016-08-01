@@ -2,10 +2,10 @@
 name = "wifilocation"
 version = "0.1.0"
 authors = ["Mark Sta Ana <booyaabooyaabooyaa@gmail.com>"]
-description = "List WiFi hotspots in your area"
-repository = "https://github.com/booyaa/wifiscanner"
+description = "Get your GPS location using WiFi hotspots"
+repository = "https://github.com/booyaa/wifilocation"
 readme = "README.md"
-keywords = ["wifi","hotspots","network"]
+keywords = ["wifi","geolocation","network","gps"]
 license = "Apache-2.0"
 
 [dependencies]
