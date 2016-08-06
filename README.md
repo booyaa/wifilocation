@@ -13,7 +13,7 @@ used by adding `wifilocation` to the dependencies in your project's `Cargo.toml`
 
 ```toml
 [dependencies]
-wifilocation = "0.1"
+wifilocation = "0.2"
 ```
 
 and this to your crate root:
