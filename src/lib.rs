@@ -18,20 +18,13 @@
 //!
 //! ```toml
 //! [dependencies]
-//! wifilocation = "0.2"
+//! wifilocation = "0.2.*"
 //! ```
 //!
 //! and this to your crate root:
 //!
 //! ```rust
 //! extern crate wifilocation;
-//! ```
-//! # Example
-//!
-//! ```rust
-//! use wifilocation;
-//!
-//! println!("{:?}", wifilocation::get_location(wifilocation::get_towers()));
 //! ```
 
 extern crate wifiscanner;
