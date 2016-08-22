@@ -1,10 +1,16 @@
 # Warning: subject to change!
+# Warning: only builds in nightly (sorry)
 
 # wifilocation
+
+[![Build Status](https://travis-ci.org/booyaa/wifilocation.svg?branch=master)](https://travis-ci.org/booyaa/wifilocation)
 
 A crate to return your GPS location using WiFi hotspots.
 
 Inspired by Fractals wifi-location (https://github.com/contra/wifi-location)
+
+
+Full documentation can be found [here](https://booyaa.github.io/wifilocation/wifilocation/index.html).
 
 # Usage
 

@@ -1,15 +1,16 @@
 [package]
 name = "wifilocation"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Mark Sta Ana <booyaabooyaabooyaa@gmail.com>"]
 description = "Get your GPS location using WiFi hotspots"
 repository = "https://github.com/booyaa/wifilocation"
+documentation = "https://booyaa.github.io/wifilocation/wifilocation/index.html"
 readme = "README.md"
 keywords = ["wifi","geolocation","network","gps"]
 license = "Apache-2.0"
 
 [dependencies]
-wifiscanner = "0.3.0"
+wifiscanner = "0.3.*"
 curl = "0.3.1"
 serde = "0.8"
 serde_json = "0.8"
