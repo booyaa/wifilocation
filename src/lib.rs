@@ -1,6 +1,4 @@
-#![feature(custom_derive, plugin)]
-#![plugin(serde_macros)]
-
+#![feature(proc_macro)]
 // Copyright 2016 Mark Sta Ana.
 // Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 // http://www.apache.org/licenses/LICENSE-2.0>, at your option.
@@ -29,7 +27,9 @@
 
 extern crate wifiscanner;
 extern crate curl;
-extern crate serde;
+
+#[macro_use]
+extern crate serde_derive;
 extern crate serde_json;
 
 use wifiscanner::Wifi;
