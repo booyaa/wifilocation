@@ -16,7 +16,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! wifilocation = "0.2.*"
+//! wifilocation = "0.3.*"
 //! ```
 //!
 //! and this to your crate root:
@@ -26,14 +26,15 @@
 //! ```
 
 extern crate wifiscanner;
-extern crate curl;
+extern crate reqwest;
 
 #[macro_use]
 extern crate serde_derive;
 extern crate serde_json;
 
 use wifiscanner::Wifi;
-use curl::easy::{Easy, List};
+use reqwest::header::Accept;
+
 
 const BASE_URL: &'static str = "https://maps.googleapis.com/maps/api/browserlocation/json";
 const BASE_PARAMS: &'static str = "?browser=firefox&sensor=true";
@@ -67,7 +68,6 @@ pub fn get_towers() -> Vec<Wifi> {
 
 /// Return GPS location using a Vec of wifiscanner::Wifi. Uses Google's GPS location service
 pub fn get_location(towers: Vec<Wifi>) -> Result<GpsLocation, Error> {
-    let mut handle = Easy::new();
     let mut url = String::new();
     url.push_str(BASE_URL);
     url.push_str(BASE_PARAMS);
@@ -82,29 +82,14 @@ pub fn get_location(towers: Vec<Wifi>) -> Result<GpsLocation, Error> {
 
     }
 
-    let encoded_params = handle.url_encode(url_params.as_bytes());
-    url.push_str(&encoded_params);
+    url.push_str(&url_params);
+    let client = reqwest::Client::new().unwrap();
+    let mut res = client.post(&url)
+                        .header(Accept::json())
+                        .send()
+                        .expect("Failed to connect to google api!"); // sorry Cristi
 
-    let mut list = List::new();
-    list.append("Accept: application/json").unwrap();
-    handle.post(true).unwrap();
-    handle.post_field_size(0).unwrap();
-    handle.http_headers(list).unwrap();
+    let gps = try!(res.json::<GpsLocation>().map_err(|_| Error::JSON));
 
-    let mut data = Vec::new();
-    handle.url(&url.to_string()).unwrap();
-    {
-        let mut transfer = handle.transfer();
-        transfer.write_function(|new_data| {
-                    data.extend_from_slice(new_data);
-                    Ok(new_data.len())
-                })
-                .unwrap();
-        transfer.perform().unwrap();
-    }
-
-    let data_string = String::from_utf8(data.clone());
-    let raw = data_string.unwrap().to_string();
-    let gps: GpsLocation = try!(serde_json::from_str(&raw).map_err(|_| Error::JSON));
     Ok(gps)
 }
