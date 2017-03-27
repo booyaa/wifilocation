@@ -34,6 +34,7 @@ println!("{:?}", wifilocation::get_location(wifilocation::get_towers()));
 ```
 
 # Changelog
+- 0.3.1 - remove hardcoded path for iwlist (props to @alopatindev)
 - 0.3.0 - simplified code after 1.15 stable release and switched from curl to reqwest
 # Copyright
 
