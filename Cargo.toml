@@ -1,6 +1,6 @@
 [package]
 name = "wifilocation"
-version = "0.3.1"
+version = "0.3.0"
 authors = ["Mark Sta Ana <booyaabooyaabooyaa@gmail.com>"]
 description = "Get your GPS location using WiFi hotspots"
 repository = "https://github.com/booyaa/wifilocation"
