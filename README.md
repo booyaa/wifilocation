@@ -1,6 +1,8 @@
 # wifilocation
 
 [![Build Status](https://travis-ci.org/booyaa/wifilocation.svg?branch=master)](https://travis-ci.org/booyaa/wifilocation)
+[![Crates](https://img.shields.io/crates/v/wifilocation.svg)](https://crates.io/crates/wifilocation)
+[![docs.rs](https://docs.rs/wifilocation/badge.svg)](https://docs.rs/wifilocation)
 
 A crate to return your GPS location using WiFi hotspots.
 
@@ -40,3 +42,4 @@ Copyright 2016 Mark Sta Ana.
 Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
 http://www.apache.org/licenses/LICENSE-2.0> at your option. This file may not
 be copied, modified, or distributed except according to those terms.
+
