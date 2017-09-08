@@ -52,6 +52,8 @@ pub struct GpsLocation {
     pub location: Location,
 }
 
+/// This maps the same JSON key in the Google Maps API response. `lng` was their choice of abbreviation for Longitude
+/// Further reading: https://gis.stackexchange.com/questions/24690/difference-between-lon-and-lng
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub struct Location {
     pub lat: f64,
