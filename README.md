@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/booyaa/wifilocation.svg?branch=master)](https://travis-ci.org/booyaa/wifilocation)
 [![Crates](https://img.shields.io/crates/v/wifilocation.svg)](https://crates.io/crates/wifilocation)
 [![docs.rs](https://docs.rs/wifilocation/badge.svg)](https://docs.rs/wifilocation)
+[![dependency status](https://deps.rs/repo/github/booyaa/wifilocation/status.svg)](https://deps.rs/repo/github/booyaa/wifilocation)
 
 A crate to return your GPS location using WiFi hotspots.
 
