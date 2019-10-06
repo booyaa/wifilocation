@@ -7,11 +7,11 @@
 
 A crate to return your GPS location using WiFi hotspots.
 
-Inspired by Fractals wifi-location (https://github.com/contra/wifi-location)
+Inspired by Fractals [wifi-location](https://github.com/contra/wifi-location)
 
-Full documentation can be found [here](https://booyaa.github.io/wifilocation/wifilocation/index.html).
+Full documentation can be found [here](https://docs.rs/wifilocation).
 
-# Usage
+## Usage
 
 This crate is [on crates.io](https://crates.io/crates/wifilocation) and can be
 used by adding `wifilocation` to the dependencies in your project's `Cargo.toml`.
@@ -26,7 +26,8 @@ and this to your crate root:
 ```rust
 extern crate wifilocation;
 ```
-# Example
+
+## Example
 
 ```rust
 use wifilocation;
@@ -34,13 +35,16 @@ use wifilocation;
 println!("{:?}", wifilocation::get_location(wifilocation::get_towers()));
 ```
 
-# Changelog
+## Changelog
+
 - 0.3.0 - simplified code after 1.15 stable release and switched from curl to reqwest
-# Copyright
 
-Copyright 2016 Mark Sta Ana.
+## How to contribute
 
-Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
-http://www.apache.org/licenses/LICENSE-2.0> at your option. This file may not
-be copied, modified, or distributed except according to those terms.
+see [CONTRIBUTING.md](/CONTRIBUTING.md)
 
+## Copyright
+
+Copyright 2019 Mark Sta Ana.
+
+see [LICENSE](/LICENSE)
