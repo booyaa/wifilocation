@@ -7,6 +7,8 @@
 
 A crate to return your GPS location using WiFi hotspots.
 
+## Warning: this crates is currently broken see issue [#6](https://github.com/booyaa/wifilocation/issues/6) for details
+
 Inspired by Fractals [wifi-location](https://github.com/contra/wifi-location)
 
 Full documentation can be found [here](https://docs.rs/wifilocation).
