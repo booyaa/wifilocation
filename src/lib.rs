@@ -84,7 +84,5 @@ pub fn get_location(towers: Vec<Wifi>) -> Result<GpsLocation, reqwest::Error> {
     let client = reqwest::Client::new();
     let gps: GpsLocation = client.post(&url).send()?.json()?;
 
-    println!("xxx{:#?}", gps);
-
     Ok(gps)
 }
