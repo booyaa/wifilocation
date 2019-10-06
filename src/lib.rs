@@ -24,19 +24,16 @@
 //! extern crate wifilocation;
 //! ```
 
-extern crate wifiscanner;
 extern crate reqwest;
-
-#[macro_use]
-extern crate serde_derive;
+extern crate serde;
 extern crate serde_json;
+extern crate wifiscanner;
 
+use serde::{Deserialize, Serialize};
 use wifiscanner::Wifi;
-use reqwest::header::Accept;
 
-
-const BASE_URL: &'static str = "https://maps.googleapis.com/maps/api/browserlocation/json";
-const BASE_PARAMS: &'static str = "?browser=firefox&sensor=true";
+const BASE_URL: &str = "https://maps.googleapis.com/maps/api/browserlocation/json";
+const BASE_PARAMS: &str = "?browser=firefox&sensor=true";
 
 #[derive(Debug, PartialEq)]
 pub enum Error {
@@ -66,31 +63,28 @@ pub fn get_towers() -> Vec<Wifi> {
     wifiscanner::scan().unwrap() // sorry Cristi
 }
 
-
 /// Return GPS location using a Vec of wifiscanner::Wifi. Uses Google's GPS location service
-pub fn get_location(towers: Vec<Wifi>) -> Result<GpsLocation, Error> {
+pub fn get_location(towers: Vec<Wifi>) -> Result<GpsLocation, reqwest::Error> {
     let mut url = String::new();
     url.push_str(BASE_URL);
     url.push_str(BASE_PARAMS);
 
     let mut url_params = String::new();
     for tower in towers {
-        url_params.push_str(&format!("&wifi=mac:{}&7Cssid:{}&7Css:{}",
-                                     tower.mac,
-                                     tower.ssid,
-                                     tower.signal_level)
-                                 .to_string());
-
+        url_params.push_str(
+            &format!(
+                "&wifi=mac:{}&7Cssid:{}&7Css:{}",
+                tower.mac, tower.ssid, tower.signal_level
+            )
+            .to_string(),
+        );
     }
 
     url.push_str(&url_params);
-    let client = reqwest::Client::new().unwrap();
-    let mut res = client.post(&url)
-                        .header(Accept::json())
-                        .send()
-                        .expect("Failed to connect to google api!"); // sorry Cristi
+    let client = reqwest::Client::new();
+    let gps: GpsLocation = client.post(&url).send()?.json()?;
 
-    let gps = try!(res.json::<GpsLocation>().map_err(|_| Error::JSON));
+    println!("xxx{:#?}", gps);
 
     Ok(gps)
 }
