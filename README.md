@@ -9,7 +9,7 @@ A crate to return your GPS location using WiFi hotspots.
 
 Inspired by Fractals wifi-location (https://github.com/contra/wifi-location)
 
-Full documentation can be found [here](https://booyaa.github.io/wifilocation/wifilocation/index.html).
+Full documentation can be found [here](https://docs.rs/wifilocation).
 
 # Usage
 
@@ -36,6 +36,11 @@ println!("{:?}", wifilocation::get_location(wifilocation::get_towers()));
 
 # Changelog
 - 0.3.0 - simplified code after 1.15 stable release and switched from curl to reqwest
+
+# How to contribute
+
+see [CONTRIBUTING.md](/CONTRIBUTING.md)
+
 # Copyright
 
 Copyright 2016 Mark Sta Ana.
